@@ -15,7 +15,7 @@ import javax.xml.ws.Service;
  * 
  */
 @WebServiceClient(name = "CustomerServiceWsdlEndpoint", 
-                  wsdlLocation = "/home/intelligrape/IdeaProjects/soapApi/src/java/org/grails/cxf/test/soap/CustomerService.wsdl",
+                  wsdlLocation = "org/grails/cxf/soap/CustomerService.wsdl",
                   targetNamespace = "http://test.cxf.grails.org/") 
 @Generated(value = "org.apache.cxf.tools.wsdlto.WSDLToJava", date = "2014-10-05T15:45:34.517+05:30", comments = "Apache CXF 2.6.6")
 public class CustomerServiceWsdlEndpoint extends Service {
@@ -28,11 +28,11 @@ public class CustomerServiceWsdlEndpoint extends Service {
     @Generated(value = "org.apache.cxf.tools.wsdlto.WSDLToJava", date = "2014-10-05T15:45:34.517+05:30")
     public final static QName CustomerServiceWsdlPort = new QName("http://test.cxf.grails.org/", "CustomerServiceWsdlPort");
     static {
-        URL url = CustomerServiceWsdlEndpoint.class.getResource("/home/intelligrape/IdeaProjects/soapApi/src/java/org/grails/cxf/test/soap/CustomerService.wsdl");
+        URL url = CustomerServiceWsdlEndpoint.class.getResource("org/grails/cxf/soap/CustomerService.wsdl");
         if (url == null) {
             java.util.logging.Logger.getLogger(CustomerServiceWsdlEndpoint.class.getName())
                 .log(java.util.logging.Level.INFO, 
-                     "Can not initialize the default wsdl from {0}", "/home/intelligrape/IdeaProjects/soapApi/src/java/org/grails/cxf/test/soap/CustomerService.wsdl");
+                     "Can not initialize the default wsdl from {0}", "org/grails/cxf/soap/CustomerService.wsdl");
         }       
         WSDL_LOCATION = url;
     }

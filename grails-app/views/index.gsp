@@ -204,21 +204,24 @@
                     <span style="font-weight: bold;">Response 2 Message:</span> ${complexResponse2?.message}<br>
                 </g:if>
                 <g:if test="${customer}">
-                    <BR><BR>
-                    <span style="font-weight: bold;">Request 2 Child:</span> ${complexRequest2?.singleChild}<BR>
-                    <span style="font-weight: bold;">Request 2 Propagate:</span> ${complexRequest2?.propagateCount}<BR>
-                    <span style="font-weight: bold;">Response 2 Child Count:</span> ${complexResponse2?.childCount}<br>
-                    <span style="font-weight: bold;">Response 2 Children:</span> ${complexResponse2?.children}<br>
-                    <span style="font-weight: bold;">Response 2 Message:</span> ${complexResponse2?.message}<br>
+                    <g:each in="${customer}" var="customerReq">
+                        <BR><BR>
+                        <span style="font-weight: bold;">Request name:</span> ${customerReq?.name}<BR>
+
+                    </g:each>
                 </g:if>
                 <g:if test="${customerRes}">
-                    <BR><BR>
-                    <span style="font-weight: bold;">Request 2 Child:</span> ${complexRequest2?.singleChild}<BR>
-                    <span style="font-weight: bold;">Request 2 Propagate:</span> ${complexRequest2?.propagateCount}<BR>
-                    <span style="font-weight: bold;">Response 2 Child Count:</span> ${complexResponse2?.childCount}<br>
-                    <span style="font-weight: bold;">Response 2 Children:</span> ${complexResponse2?.children}<br>
-                    <span style="font-weight: bold;">Response 2 Message:</span> ${complexResponse2?.message}<br>
+                    <g:each in="${customerRes}" var="customer">
+                        <BR><BR>
+                        <span style="font-weight: bold;">Response name:</span> ${customer?.name}<BR>
+                        <span style="font-weight: bold;">Response address:</span> ${customer?.address}<BR>
+                        <span style="font-weight: bold;">Response birthdatye:</span> ${customer?.birthDate}<br>
+                        <span style="font-weight: bold;">Response revenue:</span> ${customer?.revenue}<br>
+                        <span style="font-weight: bold;">Response numorder:</span> ${customer?.numOrders}<br>
+                    </g:each>
+
                 </g:if>
+
 
             </div>
         </div>
