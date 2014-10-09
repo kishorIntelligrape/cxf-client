@@ -1,3 +1,5 @@
+import org.grails.cxf.soap.CustomerServiceWsdlEndpointPortType
+
 // locations to search for config files that get merged into the main config
 // config files can either be Java properties files or ConfigSlurper scripts
 
@@ -224,6 +226,12 @@ cxf {
             serviceEndpointAddress = "http://www.webservicex.net/stockquote.asmx"
             receiveTimeout = 120000 //2min
             connectionTimeout = 120000 //2min
+        }
+
+        customerServiceWsdlEndpointClient {
+            clientInterface = CustomerServiceWsdlEndpointPortType
+            serviceEndpointAddress = "http://localhost:8080/soapApi/services/annotatedCustomerServiceWsdl"
+            receiveTimeout = 120000 //2min
         }
     }
 }

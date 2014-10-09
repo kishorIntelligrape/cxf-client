@@ -136,6 +136,17 @@
                 </g:form>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <g:form action="customerService" controller="demo" name="customerServiceDemo">
+                    <h5>Customer Service</h5>
+
+                    <div style="width:100%"><g:submitButton name="submitButton" value="Invoke"/></div>
+
+                </g:form>
+            </div>
+        </div>
     </div>
 
     <div class="col-xs-6">
@@ -185,6 +196,22 @@
                     <span style="font-weight: bold;">Response 1 Message:</span> ${complexResponse1?.message}<br>
                 </g:if>
                 <g:if test="${complexRequest2}">
+                    <BR><BR>
+                    <span style="font-weight: bold;">Request 2 Child:</span> ${complexRequest2?.singleChild}<BR>
+                    <span style="font-weight: bold;">Request 2 Propagate:</span> ${complexRequest2?.propagateCount}<BR>
+                    <span style="font-weight: bold;">Response 2 Child Count:</span> ${complexResponse2?.childCount}<br>
+                    <span style="font-weight: bold;">Response 2 Children:</span> ${complexResponse2?.children}<br>
+                    <span style="font-weight: bold;">Response 2 Message:</span> ${complexResponse2?.message}<br>
+                </g:if>
+                <g:if test="${customer}">
+                    <BR><BR>
+                    <span style="font-weight: bold;">Request 2 Child:</span> ${complexRequest2?.singleChild}<BR>
+                    <span style="font-weight: bold;">Request 2 Propagate:</span> ${complexRequest2?.propagateCount}<BR>
+                    <span style="font-weight: bold;">Response 2 Child Count:</span> ${complexResponse2?.childCount}<br>
+                    <span style="font-weight: bold;">Response 2 Children:</span> ${complexResponse2?.children}<br>
+                    <span style="font-weight: bold;">Response 2 Message:</span> ${complexResponse2?.message}<br>
+                </g:if>
+                <g:if test="${customerRes}">
                     <BR><BR>
                     <span style="font-weight: bold;">Request 2 Child:</span> ${complexRequest2?.singleChild}<BR>
                     <span style="font-weight: bold;">Request 2 Propagate:</span> ${complexRequest2?.propagateCount}<BR>

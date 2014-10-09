@@ -6,6 +6,10 @@ import cxf.client.demo.complex.ComplexServicePortType
 import cxf.client.demo.secure.SecureServicePortType
 import cxf.client.demo.simple.SimpleServicePortType
 import net.webservicex.StockQuoteSoap
+import org.grails.cxf.soap.Customer
+import org.grails.cxf.soap.CustomerServiceWsdlEndpoint
+import org.grails.cxf.soap.CustomerServiceWsdlEndpointPortType
+import org.grails.cxf.soap.NoSuchCustomerException
 
 import javax.xml.ws.soap.SOAPFaultException
 
@@ -20,6 +24,7 @@ class DemoController {
     AuthorizationServicePortType customSecureAuthorizationServiceClient
     SecureServicePortType customSecureServiceOutClient
     StockQuoteSoap stockQuoteClient
+    CustomerServiceWsdlEndpointPortType customerServiceWsdlEndpointClient
 
     def index = {
         render(view: "/index")
@@ -169,5 +174,21 @@ class DemoController {
         }
 
         render(view: '/index', model: [complexRequest1: request1, complexResponse1: response1, serviceException: serviceException])
+    }
+
+    def customerService () {
+        //this will cause a ComplexContrivedException_Exception
+        Customer customer = new Customer(name: "Frank")
+        def customerRes = null
+        def serviceException = null
+        try {
+            customerRes = customerServiceWsdlEndpointClient.getCustomersByName("Frank")
+        } catch (NoSuchCustomerException e) {
+            serviceException = e
+        } catch (SOAPFaultException e) {
+            serviceException = e
+        }
+
+        render(view: '/index', model: [customer: customer, customerRes: customerRes, serviceException: serviceException])
     }
 }
